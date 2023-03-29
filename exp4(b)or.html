@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <script type="text/javascript">
+function validate(){
+    var a=document.myform.name.value;
+    if(a==""){
+        alert("Please!Enter Your Name");
+        document.myform.name.focus();
+        return false;
+    }
+    if(!isNaN(a)){
+       alert("Please!Enter only Characters");
+       document.myform.name.focus();
+       return false;
+    }
+    var e=document.myform.mail.value;
+    if(e==""){
+        alert("Please!Enetr Your mail");
+        document.myform.mail.focus();
+        return false;
+    }
+    var pos=e.indexOf("@");
+    var posd=e.lastIndexOf(".");
+    if(pos<1 || posd < pos+2||posd+2 >=e.length){
+        alert("Invalid Mail Id!!");
+        return false;
+    }
+    var p=document.myform.pass.value;
+    if(p=""){
+        alert("Please!!Enter Your Password");
+        document.myform.pass.focus();
+        return false;
+    }
+    
+    var rb = document.myform.gender;
+            var status =0;
+            for(var i=0;i<rb.length;i++)
+            {
+                if(rb[i].checked==true){
+                    status=1;
+                }
+            }
+            if(status==0)
+            {
+                alert("select gender");
+                return false;
+            }
+            var cp = document.myform.cpass.value;
+            if(cp == "")
+            {
+                alert("please, Enter your password!!!");
+                document.myform.cpass.focus();
+                return false;
+            }
+            
+                
+                var m = document.myform.mno.value;
+            if(m =="")
+            {
+                alert("please, Enter your moblie number!!!");
+                document.myform.mno.focus();
+                return false;
+            }
+            else if(m.length<10 || m.length>10)
+                {
+                    alert("please enter only 10 digits!");
+                    document.myform.mno.focus();
+                    return false;
+                }
+                return false;
+                var interest = document.myform.course;
+            if(interest.selectedIndex==0)
+            {
+                alert("select your course");
+                document.myform.course.focus();
+                return false;
+            }
+            
+
+           
+            return true;
+            
+
+}
+    </script>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    
+    <div class="container" style="background-color:aquamarine;">
+        <form action="C:\Users\jothe\SRUTHI\action.html" name="valid" onsubmit="return validate()"></form>
+        <br>
+        <b>Registration Form</b>
+        <br>
+        <br>
+        <label for="name">Name</label>
+        <div class="input-group">
+            <span class="input-group-text"><img src="C:\Users\jothe\SRUTHI\index.png" width=50px height=50px></span>
+          <input type="text" name="name"  placeholder="Your Name" class="form-control">  
+        </div>
+        <br>
+        <label for="mail">E-Mail</label>
+        <div class="input-group">
+            <span class="input-group-text"><img src="C:\Users\jothe\SRUTHI\mail.jpg" width=50px height=50px></span>
+            <input name="mail" type="email" placeholder="Your Email">  
+        </div>
+        <br>
+        <label for="password">Password
+        </label>
+        <div class="item">
+            
+            <input type="password" name="pass" id="pwd" placeholder="Enetr you password" >
+        </div>
+        <br>
+        <label for="cpassword">Conform Password</label>
+        <div class="item">   
+            <input type="password" id="cpw" name="cpass">
+        </div> <br>
+        <div class="item">
+            <label for="gender">Gender:</label> <br>
+            <input type="radio" id="gender" name="gender">
+            <label for="male">Male</label> <br>
+            <input type="radio" id="gender" name="gender">
+            <label for="female">Female</label> <br>
+            <input type="radio" id="gender" name="gender">
+            <label for="others">Others</label> <br>
+        </div> <br>
+        <label for="mobile">Phone Number</label>
+        <div class="item">
+            <input name="mno" id="mno" name="mno">
+        </div><br>
+        <div class="item">
+            <label for="course">Select course:</label> <br>
+            <select type="text" name="course" id="course"> 
+                <option></option>
+                <option value="WEB TECHNOLOGY">WEB TECHNOLOGY</option>
+                <option value="Operating system">Operating system</option>
+                <option value="Machine Learning">Machine Learning</option>
+                <option value="Optimization Techniques">Optimization Techniques</option>
+                <option value="Object orientation program">Object Orientation Program</option>
+            </select>
+        </div> <br>
+        <div class="input-group">
+            <a href="C:\Users\jothe\SRUTHI\action.html"><input type="submit" id="sub" name="sub"></a>
+        </div> <br>
+    </form>
+    </div>
+</body>
+</html>
